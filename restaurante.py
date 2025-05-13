@@ -32,12 +32,3 @@ class Restaurante:
     
     def alternar_estado(self):
         self._ativo = not self._ativo
-
-# Criando três restaurantes (eles vão automaticamente pra lista da classe)
-restaurante_praca = Restaurante('Praça', 'Gourmet')
-restaurante_pizza = Restaurante('Pizza express', 'Italiana')
-restaurante_hamburguer = Restaurante('Comelao', 'Podrao')
-restaurante_praca.alternar_estado()
-
-# Chamando o método da CLASSE para listar todos os restaurantes criados
-Restaurante.listar_restaurantes()
