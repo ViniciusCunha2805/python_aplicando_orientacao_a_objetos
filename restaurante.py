@@ -1,4 +1,4 @@
-from python_aplicando_orientacao_a_objetos.avaliacao import Avaliacao 
+from python_aplicando_orientacao_a_objetos.avaliacao import Avaliacao
 
 class Restaurante:
     # Lista que vai guardar todos os restaurantes criados
@@ -21,12 +21,12 @@ class Restaurante:
     @classmethod
     def listar_restaurantes(cls):
         # Esse método usa "cls" porque está acessando a LISTA da CLASSE, e não um objeto específico
-        print(f"{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Status'}")
+        print(f"{'Nome do restaurante'.ljust(25)} | {'Categoria'.ljust(25)} | {'Avaliação'.ljust(25)} | {'Status'}")
 
         # Para cada restaurante salvo na lista da classe...
         for restaurante in cls.restaurantes:
             # ...mostra o nome, a categoria e o status (ativo ou não)
-            print(f"{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {restaurante.ativo}")
+            print(f"{restaurante._nome.ljust(25)} | {restaurante._categoria.ljust(25)} | {str(restaurante.media_avaliacoes).ljust(25)} | {restaurante.ativo}")
 
     @property # Transforma uma função em um atributo de leitura
     def ativo(self):
