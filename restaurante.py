@@ -1,3 +1,5 @@
+from python_aplicando_orientacao_a_objetos.avaliacao import Avaliacao 
+
 class Restaurante:
     # Lista que vai guardar todos os restaurantes criados
     restaurantes = []
@@ -7,6 +9,7 @@ class Restaurante:
         self._nome = nome
         self._categoria = categoria
         self._ativo = False
+        self._avaliacao = []
 
         # Toda vez que um novo restaurante é criado, ele é adicionado à lista da classe
         Restaurante.restaurantes.append(self)
@@ -32,3 +35,7 @@ class Restaurante:
     
     def alternar_estado(self):
         self._ativo = not self._ativo
+
+    def receber_avaliacao(self, cliente, nota):
+        avaliacao = Avaliacao(cliente, nota)
+        self._avaliacao.append(avaliacao)
