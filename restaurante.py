@@ -1,5 +1,5 @@
-# Importa a classe Avaliacao de outro arquivo
 from python_aplicando_orientacao_a_objetos.avaliacao import Avaliacao
+from python_aplicando_orientacao_a_objetos.cardapio.item_cardapio import ItemCardapio
 
 class Restaurante:
     # Lista onde ficam todos os restaurantes criados
@@ -15,6 +15,9 @@ class Restaurante:
 
         # Guarda as notas que o restaurante vai receber
         self._avaliacao = []
+
+        # Guarda os alimentos do cardápio
+        self._cardapio = []
 
         # Adiciona esse restaurante na lista geral
         Restaurante.restaurantes.append(self)
@@ -61,3 +64,18 @@ class Restaurante:
         quantidade_de_notas = len(self._avaliacao)
         media = round(soma_das_notas / quantidade_de_notas, 1)  # arredonda pra 1 casa decimal
         return media
+
+    def adicionar_no_cardapio(self, item):
+        if isinstance(item, ItemCardapio):
+            self._cardapio.append(item)
+
+    @property
+    def exibir_cardapio(self):
+        print(f'Cardápio do restaurante {self._nome}\n')
+        for i,item in enumerate(self._cardapio,start=1):
+            if hasattr(item,'_descricao'):
+                mensagem_prato = f'{i}. Nome: {item._nome} | Preço: R${item._preco} | Descrição: {item._descricao}'
+                print(mensagem_prato)
+            else:
+                mensagem_bebida = f'{i}. Nome: {item._nome} | Preço: R${item._preco} | Tamanho: {item._tamanho}'
+                print(mensagem_bebida)
